@@ -13,13 +13,15 @@ function App() {
   }, [notes]);
 
   const onAddNote = () => {
+    const id = uuid()
     const newNote = {
-      id: uuid(),
+      id: id,
       title: "Untitled note",
       body: "",
       modifiedDate: Date.now(),
     };
     setNotes([newNote, ...notes]);
+    setActiveNote(id)
   };
 
   const onDelete = (idToDelete) => {
